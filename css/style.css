@@ -1,0 +1,214 @@
+
+html,
+body {
+    margin:  0;
+    padding:  0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: rgba(196, 196, 196, 1.0);
+}
+@font-face{
+    font-family: 'Fira Code', monospace;
+    font-weight: normal;
+    font-style: normal;
+}
+
+#pixicontainer {
+    z-index: -10;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+   justify-content: center;
+    align-items: center;
+}
+
+#top {
+    margin:  0;
+    padding:  0;
+    width: 100%;
+    height: 100%;
+}
+/* old stuff */
+#editor {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    bottom: 200px;
+    right: 0px;
+    text-shadow: #FFF 0.5px 0.5px 1px;
+    -webkit-font-feature-settings: "liga" on, "calt" on;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-family: 'Fira Code', monospace;
+    background-color: transparent;
+}
+
+#feedback {
+    position: absolute;
+    left: 0px;
+    height: 150px;
+    bottom: 40px;
+    right: 0px;
+    text-shadow: #FFF 0.5px 0.5px 1px;
+    background-color: transparent;
+}
+
+.uiButton {
+    margin-left: 8px;
+    margin-top: 4px;
+    width: 32px;
+    height: 32px;
+    float: left;
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+.ui-widget * { outline: 0; }​
+
+.ui-widget{
+    font-size:10px;
+}
+.ui-tabs {
+    border: none;
+    background: transparent;
+    padding: .5em;
+}
+.ui-dialog {
+    background:rgba(0,0,0,0.4);
+}
+.ui-dialog-content {
+    padding: 0 !important;
+}
+.ui-widget-header {
+    background:rgba(128,128,128,0.4);
+}
+.ui-selectmenu-button {
+    background:rgba(255,255,255,0.4);
+}
+.ui-selectmenu-menu {
+    background:rgba(0,0,0,0.4);
+    width: 50px;
+}
+
+.execHighlight {
+    position: absolute;
+    background-color: rgba(0,0,255,0.4);
+}
+
+#footer {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 40px;
+    position:fixed;
+}
+
+#footerUI {
+    position: relative;
+    /*left: 150px;*/
+    background-color:rgba(0,0,0,.4);
+}
+
+#selectFontSizeDIV,  #selectFontSize,
+#selectBackgroundAlphaDIV,  #selectBackgroundAlpha,
+#selectHighlightingDIV,  #selectHighlighting{
+    width: auto;
+    font-size: 10pt;
+}
+
+#autoComplete + label {
+    background: url('../images/functionsOff.png') no-repeat center;
+    background-size: 24px 24px;
+    padding: 0px;
+    border: none;
+}
+#autoComplete:checked + label {
+    background:url('../images/functionsOn.png') no-repeat center;
+    background-size: 24px 24px;
+    padding: 0px;
+    border: none;
+}
+
+#debug + label {
+    background: url('../images/debugOff.png') no-repeat center;
+    background-size: 24px 24px;
+    padding: 0px;
+    border: none;
+}
+#debug:checked + label {
+    background:url('../images/debugOn.png') no-repeat center;
+    background-size: 24px 24px;
+    padding: 0px;
+    border: none;
+}
+
+#playback {
+    background: url('../images/play.png') no-repeat center;
+    background-size: 24px 24px;
+}
+
+#network {
+    background: url('../images/networkOff.png') no-repeat center;
+    background-size: 24px 24px;
+}
+
+#openFile {
+    background: url('../images/open.png') no-repeat center;
+    background-size: 24px 24px;
+}
+
+#openDoc {
+    background: url('../images/open.png') no-repeat center;
+    background-size: 24px 24px;
+}
+#saveFile {
+    background: url('../images/save.png') no-repeat center;
+    background-size: 24px 24px;
+}
+
+#funcButton {
+    background: url('../images/functionsOff.png') no-repeat center;
+    background-size: 24px 24px;
+}
+
+#myFullScreen + label {
+    background: url('../images/fullscreen.png') no-repeat center;
+    background-size: 24px 24px;
+    padding: 0px;
+    border: none;
+}
+#myFullScreen:checked + label {
+    background: url('../images/minimize.png') no-repeat center;
+    background-size: 24px 24px;
+    padding: 0px;
+    border: none;
+}
+.ace-kuroir .ace_gutter {
+    background-color: transparent;
+}
+
+.ace_status-indicator {
+    /*color: white;*/
+    position: absolute;
+    right: 0;
+    border-left: 1px solid;
+}
+::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+::-webkit-scrollbar-track {
+    /*box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);*/
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(100, 100, 100, 0.4);
+}
+
+::-webkit-scrollbar-corner,
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(100, 100, 100, 0.0);
+}

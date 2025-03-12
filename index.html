@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>live-code animated notation</title>
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height, minimal-ui" />
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/livewriting.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+    <!-- canvas ==================================== -->
+    <div  id="pixicontainer"></div>
+    <!-- editors ==================================== -->
+        <div id="editor"></div>
+        <div id="feedback"></div>
+    <!-- footer UI ================================= -->
+        <div id="footer">
+            <div id="footerUI">
+                <div id="selectFontSizeDIV" class="uiButton" title="Text Size">
+                    <select id="selectFontSize">
+                        <option value="10">10</option>
+                        <option value="12">12</option>
+                        <option value="14" selected="selected">14</option>
+                        <option value="16">16</option>
+                        <option value="18">18</option>
+                        <option value="24">24</option>
+                        <option value="36">36</option>
+                    </select>
+                </div>
+                <input type="checkbox" id="autoComplete" value="" />
+                <label for="autoComplete" class="uiButton" title="Toggle Auto Complete"></label>
+            <!--     <input type="checkbox" id="debug" value="" />
+                <label for="debug" class="uiButton" title="Toggle Debugging"></label> -->
+                <input type="submit" id="openDoc" value="" class="uiButton" title="Open File" />
+                <input type="file" id="edFile" class="hide" />
+                <input type="submit" id="openFile" value="" class="uiButton" title="Open Text Recording" />
+                <input type="submit" id="saveFile" value="" class="uiButton" title="Save Text Recording" />
+                <input type="file" id="myFile" class="hide" />
+                <input type="submit" id="playback" value="" class="uiButton" title="Playback Recording"/>
+                <input type="submit" id="network" value="" class="uiButton" title="Networking" />
+                <input type="checkbox" id="myFullScreen" value="" />
+                <label for="myFullScreen" class="uiButton" title="Toggle Fullscreen"></label>
+            </div>
+        </div>
+          <!-- livewriting NAV ================================= -->
+        <div class='livewriting_navbar'>
+            <div class='livewriting_slider_wrapper'>
+                <div class='livewriting_slider'></div>
+            </div>
+            <div class="livewriting_toolbar_wrapper">
+                <div class="livewriting_navbar_buttons_left">
+                    <button id="lw_toolbar_play" class="lw_toolbar_button">pause</button>
+                    <button id="lw_toolbar_beginning" class="lw_toolbar_button">go to beginning</button>
+                    <button id="lw_toolbar_end" class="lw_toolbar_button">go to end</button>
+                </div>
+                <div class="livewriting_navbar_buttons_right">
+                    <div>
+                        <button id="lw_toolbar_stat" class="lw_toolbar_button">Show Histogram</button>
+                        <button id="lw_toolbar_skip" class="lw_toolbar_button">skip inactive parts</button>
+                        <!-- <button id="lw_toolbar_setting" class="lw_toolbar_button">settings</button> -->
+                        <button class="lw_toolbar_button livewriting_speed">1 X</button>
+                        <button class="lw_toolbar_button lw_toolbar_speed">adjust the speed</button>
+                        <div id="lw_playback_slider"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- networking UI ================================= -->
+        <div id="networkPanel" title="Network Connection">
+            <p>Connect to Server</p>
+            <!-- <input type="submit" id="set_websocket" value="Update Ports" /> -->
+            <input type="text" id="who_is_this" value="" />
+            <label for="who_is_this">Username</label>
+            <input type="text" id="the_email" value="" />
+            <label for="the_email">Email</label>
+            <input type="text" id="the_pass" value="" />
+            <label for="the_pass">Password</label>
+            <br />
+            <input type="submit" id="set_AMN" value="Connect" />
+            <!-- <input type="text" id="AMN_DB" value="ws://10.0.1.8:1234" />
+            <label for="sith_temple">local address</label>
+            <br /> -->
+        </div>
+</body>
+
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="lib/firebase.js"></script>
+    <script type="text/javascript" src="lib/ace/ace.js"></script>
+    <script type="text/javascript" src="lib/ace/ext-language_tools.js"></script>
+    <script type="text/javascript" src="lib/ace/ext-searchbox.js"></script>
+    <script type="text/javascript" src="lib/firepad.min.js"></script>
+    <script type="text/javascript" src="lib/FileSaver.js"></script>
+    <script type="text/javascript" src="lib/pixi/pixi.min.js"></script>
+    <script type="text/javascript" src="lib/umd/gsap.js"></script>
+    <script type="text/javascript" src="lib/umd/PixiPlugin.js"></script>
+    <script type="text/javascript" src="lib/fast-toml.js"></script>
+    <script type="text/javascript" src="js/livewriting.js"></script>
+    <script type="text/javascript" src="js/myUI.js"></script>
+    <script type="text/javascript" src="js/NotationCanvas.js"></script>
+    <script type="text/javascript" src="js/my-ace.js"></script>
+    <script type="text/javascript" src="js/myCommunication.js" async></script>
+</html>

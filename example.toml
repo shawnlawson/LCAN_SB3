@@ -1,0 +1,21 @@
+world.clear = "all"
+
+world.color = [1, 1, 1]
+
+[flying_squares]
+    shape = "rect"
+    number = 100
+    width = 100
+    height = 100
+    x = 0
+    y = [0, 720]
+    color = [0, 0, 1]
+    opacity = 0.2
+[[flying_squares.cues]]
+    duration = [1, 3]
+    delay = [0, 3]
+    what.x = 1280
+[[flying_squares.cues]]
+    duration = [1, 3]
+    delay = [0, 3]
+    what.x = 0
