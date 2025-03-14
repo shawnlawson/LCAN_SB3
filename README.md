@@ -13,12 +13,8 @@ world.background_color = [1, 1, 1]
 
 commands
 ~~~toml
-world.play = true
+world.play = true|false
 world.play_pause = true
-~~~
-
-functions
-~~~toml
 world.clear = "all"
 world.clear = "name"
 ~~~
@@ -32,10 +28,10 @@ declaration and naming
 
 properties required
 ~~~toml
-shape = "square" #refer to shapes section
+shape = "rect" #refer to shapes section. Options: circle, ellipse, rect, rounded_rect, star, line, font
 ~~~
 
-properties optional
+properties optional for all shapes
 ~~~toml
 number = 1 # defaults to 1
 color = [1,1,1] # defaults to [0,0,0]
@@ -43,78 +39,93 @@ opacity = 1 # defaults to 1
 stroke.width = 1 # defaults to 1
 stroke.color = [1,1,1] # defaults to [0,0,0]
 stroke.opacity = 1 # defaults to 1
-x = 100 # defaults to 640
-y = 360 # defaults to 360
+x = 100
+y = 360
+scale = 1
 rotation = 0 # defaults to 0, use degrees
 parent = "name" # defaults to "stage"
-replace = true # defaults to false
+replace = true # defaults to false, will replace object with same name on stage when created
 ~~~
 
 ### Shapes
 
-lists additional expected properties
-
-#### Rect
-
-~~~toml
-shape = "rect"
-width = 10 # defaults to 10
-height = 10 #defaults to 10
-~~~
+Shapes have additional expected properties
 
 #### Circle
-
 ~~~toml
 shape = "circle"
-radius = 10 # defaults to 10
+radius = 10
+~~~
+
+#### Ellipse
+~~~toml
+shape = "ellipse"
+radiusX = 10
+radiusY = 10
+~~~
+
+#### Rect
+~~~toml
+shape = "rect"
+width = 10
+height = 10
+~~~
+
+#### Rounded Rect
+~~~toml
+shape = "rounded_rect"
+width = 10
+height = 10
+radius = 10
+~~~
+
+#### Star
+~~~toml
+shape = "star"
+radius = 100
+innerRadius = 50
+points = 5
 ~~~
 
 #### Line
 
-We should decide the behavior of lines. Currently x and y are first point on line. Points array are a list of points for drawing the line
+Lines have options for making, use stroke property to change color
 
 ~~~toml
 shape = "line"
-points = [10, 10] # no default, list of points required
-stroke.width = 1 # width required
-stroke.color = [0, 0, 0] # color required
+start = [0, 100]
+end = [0, 200]
+
+# or
+
+shape = "line"
+start = [0, 100]
+points = [10, 10]
+end = [0, 200]
+
+# or
+
+shape = "line"
+points = [0, 100, 10, 10, 0, 200]
 ~~~
 
-#### Text
-
+#### Font
 ~~~toml
-shape = "text"
+shape = "font"
+text = "This is text." # defaults "Hello World!"
+
+# optional:
 font_face = "Arial" # defaults Arial
 font_size = 12 # defaults to 12
-text = "Hello World!" # defaults "Hello World!"
 ~~~
 
 ## Object Cues
 
-Cues are an array of objects describing each timed action. Must have double square braces. Name must match object name. Cues will automatically start when executed and automatically delete the object when completed. 
-
-To not delete the object after completion set
-~~~toml
-keep = true #default false
-~~~
-before the declaration block below, each sequetial declaration block adds another animation to the array
-
+Cues are an array of objects describing each timed action. Must have double square braces. Name must match object name. Cues will automatically start when executed and automatically delete the object when completed. Before the declaration block below, each sequetial declaration block adds another animation to the array
 
 Declaration
 ~~~toml
 [[name.cues]]
-~~~
-
-Required Properties
-~~~toml
-duration = 1 # time in seconds
-delay = 0 #t time in seconds
-~~~
-
-Optional Properties
-~~~toml
-ease = "linear" # default is "linear"
-repeat = true # default is false
 ~~~
 
 What Properties, any number of these can be set to animation when the cue runs
@@ -125,6 +136,40 @@ what.rotation = 0
 what.color = [0,0,0]
 what.stroke_color = [0,0,0]
 what.opactiy = 1
+~~~
+
+Optional Properties
+~~~toml
+duration = 1 # time in seconds
+delay = 0 #t time in seconds
+ease = "linear" # default is "linear"
+repeat = true # default is false
+keep = true #default false, To not delete the object after completion set
+~~~
+
+Example
+~~~toml
+# one object, one property animation
+[[name.cues]]
+what.x = 100
+
+# one object, two property animations in parallel
+[[name.cues]]
+what.x = 100
+what.roation = 90
+
+# one object, two property animations in sequence
+[[name.cues]]
+what.x = 100
+[[name.cues]]
+what.roation = 90
+
+# one object, one property animation with two steps in sequence
+[[name.cues]]
+what.x = 100
+[[name.cues]]
+what.x = 10
+
 ~~~
 
 
@@ -158,10 +203,10 @@ color.r = [0.5, 1] # set random red only from 0.5 to 1
 ~~~
 
 
-### Eval
+<!-- ### Eval
 
 ~~~toml
 color.eval = "function(){}"
-~~~
+~~~ -->
 
 
