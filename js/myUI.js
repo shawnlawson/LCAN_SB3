@@ -36,7 +36,7 @@ $(document)
                 editor.focus()
             })
 
-          $('#network')
+        $('#network')
             .button()
             .click(function(event) {
                 $('#networkPanel').dialog('open')

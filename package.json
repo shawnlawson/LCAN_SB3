@@ -1,0 +1,27 @@
+{
+  "name": "LCAN SB3",
+  "version": "1.0.0",
+  "description": "Live Coding Animated Notation, Shared Buffer",
+  "scripts": {
+    "firebase": "cd fireDB && firebase --only database emulators:start",
+    "webserver": "http-server -p 8000 -c-1 --cors"
+  },
+  "exports": "./node_modules/firebase/package.json",
+  "repository": "https://github.com/shawnlawson/LCAN_SB3",
+  "keywords": [],
+  "author": "Shawn lawson",
+  "license": "CC0-1.0",
+  "standard": {
+    "ignore": [
+      "node_modules"
+    ]
+  },
+  "devDependencies": {
+    "firebase": "^11.4.0"
+  },
+  "dependencies": {
+    "commander": "9.3.0",
+    "http-server": "^14.1.1",
+    "ws": "^8.18.1"
+  }
+}

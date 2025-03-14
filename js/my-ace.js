@@ -74,7 +74,7 @@ editor.commands.addCommand({
   exec: function() {
     if (messages !== null) {
         messages.push({
-          author: user.name,
+          author: localStorage.username,
           exec: 'execLine',
           range: editor.session.selection.getRange(),
           backwards: editor.session.selection.isBackwards() + 0
@@ -95,7 +95,7 @@ editor.commands.addCommand({
   exec: function() {
     if (messages !== null) {
       messages.push({
-        author: user.name,
+        author: localStorage.username,
         exec: 'execBlock',
         range: editor.session.selection.getRange(),
         backwards: editor.session.selection.isBackwards() + 0
