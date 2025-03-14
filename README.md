@@ -210,3 +210,36 @@ color.eval = "function(){}"
 ~~~ -->
 
 
+# install
+install node.js
+
+npm install --omit=dev
+
+# tidal server
+in ghciSuperDirt
+	edit oAddress for remote_target
+	edit oAddress for local_target
+~~~ c
+npm run tidal
+~~~
+
+# firepad server
+in fireDB/firebase.json 
+	edit ip and port
+~~~ c
+> npm run firebase
+~~~
+
+# webserver
+~~~ c
+> npm run webserver
+~~~
+
+# start
+open http://192.168.0.2:8000
+
+## network connection settings
+username - whatever
+Sith Temple Adrress - ws://192.168.0.2:1234
+Tidal Address - ws://localhost:9000
+TD Address - depends... ws://192.168.0.4:9980
