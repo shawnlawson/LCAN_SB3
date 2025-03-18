@@ -143,7 +143,7 @@ Optional Properties
 duration = 1 # time in seconds
 delay = 0 #t time in seconds
 ease = "linear" # default is "linear"
-repeat = true # default is false
+repeat = 3 # default is 0, forever is -1
 keep = true #default false, To not delete the object after completion set
 ~~~
 
@@ -156,13 +156,13 @@ what.x = 100
 # one object, two property animations in parallel
 [[name.cues]]
 what.x = 100
-what.roation = 90
+what.rotation = 90
 
 # one object, two property animations in sequence
 [[name.cues]]
 what.x = 100
 [[name.cues]]
-what.roation = 90
+what.rotation = 90
 
 # one object, one property animation with two steps in sequence
 [[name.cues]]
@@ -240,6 +240,6 @@ open http://192.168.0.2:8000
 
 ## network connection settings
 username - whatever
-Sith Temple Adrress - ws://192.168.0.2:1234
+Sith Temple Address - ws://192.168.0.2:1234
 Tidal Address - ws://localhost:9000
 TD Address - depends... ws://192.168.0.4:9980

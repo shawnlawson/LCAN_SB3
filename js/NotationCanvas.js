@@ -85,8 +85,8 @@ app.loadWorld = function(name, object)
 
   // background color, could add alpha
   if ("background_color" in object)
-    app.renderer.background.backgroundColor = app.parseColor(object.background_color)
-    // app.renderer.backgroundColor = app.parseColor(object.background_color)
+    // app.renderer.background.backgroundColor = app.parseColor(object.background_color)
+    app.renderer.background = app.parseColor(object.background_color)
 }
 
 app.loadGraphics = function(name, object)
@@ -265,11 +265,9 @@ app.makeText = function(n, o, no)
 app.loadCues = function(o, no) 
 {
   gsap.defaults({ease: "none"})
-  var tl = gsap.timeline({ease : "none", 
-                          duration: 1, 
-                          delay: 0,
+  let tl = gsap.timeline({ease : "none", 
                           onComplete: app.removeObject,
-                          onCompleteParams: [no]
+                          onCompleteParams: [no.name]
                         })
 
   for (const cue of o.cues) {
@@ -281,8 +279,10 @@ app.loadCues = function(o, no)
       c.delay = app.numberHelper(cue.delay)
     if ("ease" in cue)
       c.ease = cue.ease
+    if ("yoyo" in cue)
+      tl.yoyo(cue.yoyo)
     if ("repeat" in cue)
-      c.repeat = cue.repeat
+      tl.repeat(cue.repeat)
     if ("keep" in cue)
       tl.vars.onComplete = null
 
@@ -316,9 +316,11 @@ app.loadCues = function(o, no)
   return tl
 }
 
-app.removeObject = function(clip) 
+app.removeObject = function(name) 
 {
-  clip.parent.removeChild(clip)
+  let object = app.stage.getChildByLabel(name, true)
+  object.timeline.kill()
+  object.parent.removeChild(object)
 }
 
 app.replaceGraphics = function(name, object)
